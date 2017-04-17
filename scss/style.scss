@@ -61,9 +61,12 @@ a {
 
 * {
     //fuck top margins
-    margin-top:0!important;
+    margin-top:0;
 }
 
+.container {
+    margin: 1em;
+}
 
 
 /* Text meant only for screen readers. */
@@ -80,11 +83,21 @@ a {
 
 .bubble {
     color : $white;
+    padding: 1em;
+    border-radius: 1em;
+    max-width: 80%;
+    margin-bottom: 1em;
     &--left {
         background-color: $dark;
+        margin-right: auto;
+
+        &:before {}
     }
     &--right {
         text-align: right;
         background-color: $green;
+        margin-left: auto;
+
+        &:after {}
     }
 }
