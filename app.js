@@ -6,11 +6,47 @@ var randomTattoo = {
         'a shark',
         'a sea monster',
         'a gorilla',
-        'the Portland Trail Blazers',
         'Michael Jordan',
         'an angel',
         'a unicorn',
-        'an eagle'
+        'an eagle',
+        'a tiger',
+        'a robot',
+        'a ninja turtle',
+        'a bulldog',
+        'a hula girl',
+        'a panther',
+        'Wile E. Coyote',
+        'Daffy Duck',
+        'Mr. T',
+        'a wolf',
+        'a pinup girl',
+        'a sparrow',
+        'a mermaid',
+        'a dolphin',
+        'a dragon',
+        'an octopus',
+        'a puppydog',
+        'a kitty cat',
+        'a mouse',
+        'a magician',
+        'a beaver',
+        'a whale',
+        'a smurf'
+    ],
+
+    patients : [
+        'the moon',
+        'an El Camino',
+        'a sushi role',
+        'a taco',
+        'a burrito',
+        'a lighthouse',
+        'an avocado',
+        'a bible',
+        'a sailboat',
+        'a tall ship',
+        'a submarine'
     ],
 
     accessories : [
@@ -20,9 +56,50 @@ var randomTattoo = {
         'a slice of pizza',
         'a trombone',
         'a pipe',
-        'a tophat',
+        'a top hat',
         'a mullet',
-        'beer belly'
+        'a beer belly',
+        'a beer',
+        'a chainsaw',
+        'a martini',
+        'a sword',
+        'a tennis racket',
+        'a lasso',
+        'a bull whip',
+        'a club',
+        'a flamethrower',
+        'a samurai sword',
+        'a battleaxe',
+        'a pocket watch',
+        'sunglasses',
+        'a peg leg',
+        'a banana',
+        'a necktie',
+        'a monocle',
+        'a deck of cards',
+        'sweater vest',
+        'a beard',
+        'a mustache',
+        'a peach',
+        'a dirt bike',
+        'scooter',
+        'a hot dog',
+        'jazz hands',
+        'an oven mit',
+        'a sledge hammer',
+        'a butcher knife',
+        'a cappuchino',
+        'a telescope',
+        'a magnifying glass',
+        'a cigarette',
+        'a cigar',
+        'a harpoon',
+        'a toolbox',
+        'wings',
+        'a whiskey flask',
+        'a crown'
+
+
     ],
 
     transitives : [
@@ -33,7 +110,24 @@ var randomTattoo = {
         'riding on',
         'smashing',
         'slam dunking',
-        'eating'
+        'eating',
+        'slapping',
+        'holding',
+        'arm wrestling',
+        'holding up',
+        'karate chopping',
+        'jumping over',
+        'pointing at',
+        'shaking hands with',
+        'straddling',
+        'climbing',
+        'tackling',
+        'biting',
+        'chasing',
+        'fighting',
+        'holding hands with',
+        'kicking'
+
     ],
 
     intransitives : [
@@ -43,7 +137,22 @@ var randomTattoo = {
         'smiling',
         'winking',
         'parachuting',
-        'snowboarding'
+        'snowboarding',
+        'chilling on a log',
+        'drinking whiskey',
+        'high-kicking',
+        'flipping the bird',
+        'partying',
+        'crying',
+        'showing some leg',
+        'fishing',
+        'riding a Harley Davidson',
+        'laying in a hammock',
+        'on fire',
+        'laughing',
+        'blowing a kiss'
+
+
     ],
 
     init : function() {
@@ -65,7 +174,7 @@ var randomTattoo = {
     },
 
     getPatient : function() {
-        return this.random(randomTattoo.agents);
+        return this.random( randomTattoo.agents.concat(randomTattoo.patients) );
     },
 
     random : function(list) {
