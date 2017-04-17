@@ -10,6 +10,9 @@ $l : 1024px;
 //colors
 $bloodorange : #ED4221;
 $dark : #121212;
+$white : #FFF;
+$green : #65B800;
+$blue : #65B8F2;
 
 //sizes
 $v-unit : 24px;
@@ -73,4 +76,15 @@ a {
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
+}
+
+.bubble {
+    color : $white;
+    &--left {
+        background-color: $dark;
+    }
+    &--right {
+        text-align: right;
+        background-color: $green;
+    }
 }
