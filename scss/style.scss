@@ -1,0 +1,76 @@
+//normalize?
+@import "../public/bower_components/normalize.css/normalize.css";
+@import "../public/bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
+
+//breakpoints
+$s : max-width 600px;
+$m : 600px;
+$l : 1024px;
+
+//colors
+$bloodorange : #ED4221;
+$dark : #121212;
+
+//sizes
+$v-unit : 24px;
+$max-content-width : 900px;
+$base-font-size: 18px;
+$max-text-width: 30em;
+$page-edge-width: 1em;
+
+//fonts
+@import "fonts";
+
+//typography
+body {
+    font-family: 'texta', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size:$base-font-size;
+    line-height:$v-unit;
+    color: $dark;
+
+}
+
+h1,h2,h3 {
+    margin-bottom:$v-unit;
+}
+h1 {
+    font-size:2.75em;
+    line-height:3*$v-unit;
+}
+h2 {
+    font-size:2em;
+}
+h3 {
+    font-size:1.5em;
+    margin-bottom: 0;
+    line-height: 2*$v-unit;
+}
+h4 {
+    font-size:1em;
+    margin-bottom:0;
+}
+
+a {
+    color:$bloodorange;
+    text-decoration:none;
+    &:hover {}
+}
+
+* {
+    //fuck top margins
+    margin-top:0!important;
+}
+
+
+
+/* Text meant only for screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
