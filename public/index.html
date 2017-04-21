@@ -5,27 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Random Tattoo</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="./bower_components/angular/angular.min.js"></script>
     <script src="./app.js"></script>
 </head>
-<body>
+<body ng-app="randomTattooApp">
 
     <div class="container">
 
-        <div class="conversation">
-            <div class="bubble bubble--right">
-                What tattoo should I get?
-            </div>
-            
-            <div id="tattooResult" class="bubble bubble--left">
-                <!-- Bla bla bla. -->
-            </div>
+        <div class="conversation" ng-controller="conversationController">
+            <div ng-repeat="comment in comments" class="bubble" ng-class="{ 'bubble--right' : comment.author == 'user', 'bubble--left' : comment.author == 'app'}">
+                {{comment.text}}
+            </div>            
         </div><!-- .conversation -->
 
     </div>
 
-    <script>
-        document.getElementById('tattooResult').innerText = 'You should get '+randomTattoo.init();
-        // console.log(randomTattoo.init())
-    </script>
 </body>
 </html>

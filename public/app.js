@@ -187,3 +187,18 @@ var randomTattoo = {
 
 
 }
+
+var randomTattooApp = angular.module('randomTattooApp', []);
+
+randomTattooApp.controller('conversationController', ['$scope', function($scope){
+    $scope.comments = [
+        {
+            author: 'user',
+            text: 'What tattoo should I get?'
+        },
+        {
+            author: 'app',
+            text: 'You should get '+randomTattoo.init()
+        }
+    ];
+}]);
