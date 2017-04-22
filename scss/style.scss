@@ -139,14 +139,37 @@ a {
     padding: 2rem;
     box-sizing: border-box;
 
+    form {
+        display: flex;
+    }
+
     .inputField {
-        font-family:inherit;
         display: block;
         width: 100%;
-        border:none;
         padding: .25em;
+        flex-basis: 80%;
+        margin-right: 1em;
+    }
+
+    $btnWidth : 3em;
+
+    .submitBtn {
+        flex-basis: $btnWidth;
+        width: $btnWidth;
+        background-color: $green;
+        color: $white;
+        border:none;
+        appearance: none;
+        text-align: center;
+        padding-top: .4em;
+    }
+
+    .inputField,
+    .submitBtn {
+        font-family:inherit;
         box-sizing: border-box;
         font-size: 1.5em;
         line-height: 1.5;
+        border:none;
     }
 }

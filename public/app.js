@@ -198,7 +198,10 @@ randomTattooApp.controller('keyboardController', ['$scope', 'messages', function
     $scope.inputField = 'Yeahh!';
 
     $scope.submitForm = function(event) {
-        messages.add($scope.inputField);
+        if ($scope.inputField) {
+            messages.add($scope.inputField);
+            $scope.inputField = '';
+        }
         focusInput();
     }
 
