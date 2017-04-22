@@ -66,12 +66,17 @@ a {
 
 .container {
     margin: 1em;
-}
-
-.conversation {
     max-width: 30em;
     margin-left: auto;
     margin-right: auto;
+}
+
+.conversation {
+}
+
+.conversation,
+.keyboard {
+    padding: 1em;
 }
 
 /* Text meant only for screen readers. */
@@ -125,7 +130,22 @@ a {
         &:after {
             @include bubbletail($green);
             right:-.5em;
-
         }
+    }
+}
+
+.keyboard {
+    background: #efefef;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    .inputField {
+        display: block;
+        width: 100%;
+        border:none;
+        padding: .25em;
+        box-sizing: border-box;
+        font-size: 1.5em;
+        line-height: 1.5;
     }
 }

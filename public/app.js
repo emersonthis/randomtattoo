@@ -202,3 +202,10 @@ randomTattooApp.controller('conversationController', ['$scope', function($scope)
         }
     ];
 }]);
+
+randomTattooApp.controller('keyboardController', ['$scope', function($scope){
+    $scope.inputField = 'Yeahh!';
+
+    //put focus on the input
+    document.getElementById('input').focus();
+}]);
