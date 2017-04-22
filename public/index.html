@@ -20,7 +20,10 @@
 
 
         <div class="keyboard" ng-controller="keyboardController">
-            <input id="input" class="inputField" ng-model="inputField" />
+            <form id="form" ng-submit="submitForm($event)">
+                <input id="input" class="inputField" ng-model="inputField" />
+                <input type="submit" value="&crarr;" />
+            </form>
         </div>
 
     </div>

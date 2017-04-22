@@ -190,22 +190,45 @@ var randomTattoo = {
 
 var randomTattooApp = angular.module('randomTattooApp', []);
 
-randomTattooApp.controller('conversationController', ['$scope', function($scope){
-    $scope.comments = [
-        {
-            author: 'user',
-            text: 'What tattoo should I get?'
-        },
-        {
-            author: 'app',
-            text: 'You should get '+randomTattoo.init()
-        }
-    ];
+randomTattooApp.controller('conversationController', ['$scope', 'messages', function($scope, messages){
+    $scope.comments = messages.list;
 }]);
 
-randomTattooApp.controller('keyboardController', ['$scope', function($scope){
+randomTattooApp.controller('keyboardController', ['$scope', 'messages', function($scope, messages){
     $scope.inputField = 'Yeahh!';
 
+    $scope.submitForm = function(event) {
+        messages.add($scope.inputField);
+        focusInput();
+    }
+
     //put focus on the input
-    document.getElementById('input').focus();
+    var focusInput = function() {
+        document.getElementById('input').focus();
+    }
+    focusInput();
+
+
 }]);
+
+
+randomTattooApp.factory('messages', function(){
+  var messages = {};
+
+  messages.list = [
+    {
+        author: 'user',
+        text: 'What tattoo should I get?'
+    },
+    {
+        author: 'app',
+        text: 'You should get '+randomTattoo.init()
+    }
+  ];
+
+  messages.add = function(message){
+    messages.list.push({author: 'user', text: message});
+  };
+
+  return messages;
+});
