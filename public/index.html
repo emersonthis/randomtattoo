@@ -12,7 +12,7 @@
 
     <div class="container">
 
-        <div class="conversation" ng-controller="conversationController">
+        <div id="conversation" class="conversation" ng-controller="conversationController">
             <div ng-repeat="comment in comments" class="bubble" ng-class="{ 'bubble--right' : comment.author == 'user', 'bubble--left' : comment.author == 'app'}">
                 {{comment.text}}
             </div>            

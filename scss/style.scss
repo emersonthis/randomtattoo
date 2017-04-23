@@ -30,7 +30,7 @@ body {
     font-size:$base-font-size;
     line-height:$v-unit;
     color: $dark;
-
+    margin: 0;
 }
 
 h1,h2,h3 {
@@ -64,19 +64,27 @@ a {
     margin-top:0;
 }
 
+html,body {
+    height: 100%;
+}
+
 .container {
-    margin: 1em;
     max-width: 30em;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 .conversation {
-}
-
-.conversation,
-.keyboard {
-    padding: 1em;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-bottom: auto;
+    flex: 1 1 80%;
+    padding: 0 1em;
 }
 
 /* Text meant only for screen readers. */
@@ -108,7 +116,7 @@ a {
     padding: 1em;
     border-radius: 1em;
     max-width: 80%;
-    margin-bottom: 1em;
+    margin-top: 1em;
     display: table;
     position: relative;
 
@@ -138,6 +146,8 @@ a {
     background: #efefef;
     padding: 2rem;
     box-sizing: border-box;
+    padding: 1em;
+    flex: 0;
 
     form {
         display: flex;
