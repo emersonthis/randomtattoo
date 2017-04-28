@@ -46,7 +46,12 @@ var randomTattoo = {
         'a bible',
         'a sailboat',
         'a tall ship',
-        'a submarine'
+        'a submarine',
+        'a donut',
+        'a sausage',
+        'a hot dog',
+        'a hamburger',
+        'the planet Earth'
     ],
 
     accessories : [
@@ -97,7 +102,8 @@ var randomTattoo = {
         'a toolbox',
         'wings',
         'a whiskey flask',
-        'a crown'
+        'a crown',
+        'boxing gloves'
 
 
     ],
@@ -188,3 +194,75 @@ var randomTattoo = {
 
 
 }
+
+var randomTattooApp = angular.module('randomTattooApp', []);
+
+randomTattooApp.controller('conversationController', ['$scope', 'messages', function($scope, messages){
+    $scope.comments = messages.list;
+
+    var scrollConvo = function() {
+        var convo = document.getElementById('conversation');
+        t = setTimeout(function() {
+            convo.scrollTop = convo.scrollHeight;
+            clearTimeout(t);
+        }, 1);        
+    }
+
+    $scope.$watchCollection('comments', scrollConvo); 
+}]);
+
+randomTattooApp.controller('keyboardController', ['$scope', 'messages', function($scope, messages){
+    
+    $scope.inputField = 'Yeahh!';
+    
+    $scope.submitForm = function(event) {
+        if ($scope.inputField) {
+            messages.add($scope.inputField);
+            $scope.inputField = '';
+        }
+        focusInput();
+    }
+
+    //put focus on the input
+    var focusInput = function() {
+        document.getElementById('input').focus();
+    }
+    focusInput();
+
+}]);
+
+
+randomTattooApp.factory('messages', function(){
+  var messages = {};
+
+  messages.list = [
+    {
+        author: 'user',
+        text: 'What tattoo should I get?'
+    },
+    {
+        author: 'app',
+        text: 'You should get '+randomTattoo.init()
+    }
+  ];
+
+  messages.add = function(message){
+    messages.list.push({author: 'user', text: message});
+  };
+
+  return messages;
+});
+
+
+function scrollTo(element, to, duration) {
+    if (duration <= 0) return;
+    var difference = to - element.scrollTop;
+    var perTick = difference / duration * 10;
+
+    setTimeout(function() {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop === to) return;
+        scrollTo(element, to, duration - 10);
+    }, 10);
+}
+
