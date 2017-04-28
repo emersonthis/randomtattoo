@@ -77,7 +77,9 @@ html,body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    // height: 100vh;
+    position:fixed;
+    left:0;right:0;top:0;bottom:0;
 }
 
 .conversation {
@@ -86,6 +88,7 @@ html,body {
     margin-bottom: auto;
     flex: 1 1 80%;
     padding: 0 1em;
+    padding-bottom: 1em;
 }
 
 /* Text meant only for screen readers. */

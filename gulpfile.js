@@ -83,7 +83,13 @@ gulp.task('browser-sync', function () {
    ];
 
    browserSync.init(files, {
-        proxy: "randomtattoo.dev" //this is the local dev url
+        // proxy: "randomtattoo.dev" //this is the local dev url
+
+        server: {
+            baseDir: "./public/"
+        }
+
+
    });
 });
 
