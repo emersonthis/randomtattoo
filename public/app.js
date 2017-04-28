@@ -113,7 +113,7 @@ var randomTattoo = {
         'eating',
         'slapping',
         'holding',
-        'arm wrestling',
+        'arm-wrestling',
         'holding up',
         'karate chopping',
         'jumping over',
@@ -150,7 +150,8 @@ var randomTattoo = {
         'laying in a hammock',
         'on fire',
         'laughing',
-        'blowing a kiss'
+        'blowing a kiss',
+        'moonwalking'
 
 
     ],
