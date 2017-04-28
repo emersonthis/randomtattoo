@@ -146,9 +146,10 @@ var randomTattoo = {
         'snowboarding',
         'chilling on a log',
         'drinking whiskey',
+        'chugging a beer',
         'high-kicking',
         'flipping the bird',
-        'partying',
+        'winking',
         'crying',
         'showing some leg',
         'fishing',
@@ -157,43 +158,45 @@ var randomTattoo = {
         'on fire',
         'laughing',
         'blowing a kiss',
-        'moonwalking'
-
+        'moonwalking',
+        'rollerblading'
 
     ],
 
     init : function() {
-        // var template = randomTattoo.random(randomTattoo.templates);
-        // var str = '';
-        // for (var i; i < template.length; i++) {
-        //     str += template[i]();
-        // }
-        // return str;
-        return randomTattoo.getAgent() + ' ' + randomTattoo.getTransitive() + ' ' + randomTattoo.getPatient();
+        var template = randomTattoo.random(randomTattoo.templates);
+        var str = '';
+        for (var i=0; i < template.length; i++) {
+            str += template[i]() + ' ';
+        }
+        return str;
     },
 
     getAgent : function() {
-        return this.random(randomTattoo.agents);
+        return randomTattoo.random(randomTattoo.agents);
     },
 
     getTransitive : function() {
-        return this.random(randomTattoo.transitives);
+        return randomTattoo.random(randomTattoo.transitives);
+    },
+
+    getIntransitive : function() {
+        return randomTattoo.random(randomTattoo.intransitives);
     },
 
     getPatient : function() {
-        return this.random( randomTattoo.agents.concat(randomTattoo.patients) );
+        return randomTattoo.random( randomTattoo.agents.concat(randomTattoo.patients) );
     },
 
     random : function(list) {
         return list[Math.floor(Math.random()*list.length)];
     },
-
-    // templates : [
-    //     [randomTattoo.getAgent, randomTattoo.getTransitive, randomTattoo.getPatient]
-    // ]
-
-
 }
+randomTattoo.templates = [
+    [randomTattoo.getAgent, randomTattoo.getTransitive, randomTattoo.getPatient],
+    [randomTattoo.getAgent, randomTattoo.getIntransitive]
+];
+
 
 var randomTattooApp = angular.module('randomTattooApp', []);
 
