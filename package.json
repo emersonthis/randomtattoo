@@ -10,6 +10,7 @@
   "author": "Emerson This",
   "license": "None",
   "dependencies": {
+    "ejs": "^2.5.6",
     "express": "^4.13.3"
   },
   "engines": {
@@ -28,5 +29,4 @@
     "jshint-stylish": "~0.4.0",
     "gulp-autoprefixer": "~2.1.0"
   }
-
 }
