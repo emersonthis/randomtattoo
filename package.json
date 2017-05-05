@@ -12,6 +12,9 @@
   "dependencies": {
     "express": "^4.13.3"
   },
+  "engines": {
+    "node": "4.0.0"
+  },
   "devDependencies": {
     "gulp": "~3.8.5",
     "gulp-rename": "~1.2.0",
