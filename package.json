@@ -14,7 +14,7 @@
     "express": "^4.13.3"
   },
   "engines": {
-    "node": "4.0.0"
+    "node": "4.8.4"
   },
   "devDependencies": {
     "gulp": "~3.8.5",
