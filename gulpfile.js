@@ -16,7 +16,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var stylish = require('jshint-stylish');
 
 var scssPath = 'scss/style.scss';
-var jsPath = 'public/js/*';
+var jsPath = 'js/*';
 // var cssPath = './style.css';
 
 // Lint Task
@@ -39,18 +39,18 @@ gulp.task('sass', function() {
           cascase: false
         }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest("public/"));
+        .pipe(gulp.dest("./"));
 
 });
 
 
 // // Concatenate & Minify JS
 // gulp.task('scripts', function() {
-//     return gulp.src([ 
+//     return gulp.src([
 //                       //'./js/angular.min.js',
 //                       './js/vendor/angular.min.js',
 //                       './js/app/analytics.js'])
-        
+
 
 //         .pipe(concat('ms.js'))
 //         //.pipe(sourcemaps.init()) //Uncommnet this and below to generate source map
@@ -79,14 +79,14 @@ gulp.task('browser-sync', function () {
       //'**/*.jpg',
       //'**/*.jpeg',
       'img/*',
-      'js/**/*.js'
+      '**/*.js'
    ];
 
    browserSync.init(files, {
         // proxy: "randomtattoo.dev" //this is the local dev url
 
         server: {
-            baseDir: "./public/"
+            baseDir: "./"
         }
 
 
