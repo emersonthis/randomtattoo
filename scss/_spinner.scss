@@ -1,0 +1,58 @@
+.ispinner {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  .ispinner__blade {
+    position: absolute;
+    left: 44.5%;
+    top: 37%;
+    width: 10%;
+    height: 25%;
+    border-radius: 50% / 20%;
+    animation: iSpinnerBlade 1s linear infinite;
+    animation-play-state: paused;
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: 1s / 12 * ($i - 21);
+        transform: rotate(#{360deg / 12 * $i}) translate(0, -150%);
+      }
+    }
+  }
+  &.ispinner--animating {
+    .ispinner__blade {
+      animation-play-state: running;
+    }
+  }
+  &.ispinner--white {
+    .ispinner__blade {
+      background-color: white;
+    }
+  }
+  &.ispinner--gray {
+    .ispinner__blade {
+      background-color: #8c8c8c;
+    }
+  }
+  &.ispinner--large {
+    width: 4em;
+    height: 4em;
+
+    .ispinner__blade {
+      width: 100% / 35 * 3;
+      height: 100% / 35 * 9;
+      border-radius: 50% / 16.67%;
+    }
+
+  }
+}
+@keyframes iSpinnerBlade {
+  0% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}

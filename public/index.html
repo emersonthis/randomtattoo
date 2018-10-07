@@ -6,13 +6,6 @@
     <title>Random Tattoo</title>
     <link rel="stylesheet" href="/style.css" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-
-
-    <script src="cleverbot.io.js"></script><!-- @TODO download -->
-    <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="/app.js"></script>
-
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -23,7 +16,7 @@
     <!-- End Google Tag Manager -->
 
 </head>
-<body ng-app="randomTattooApp">
+<body>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSCRP5S"
@@ -31,22 +24,27 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
+        <div class="you-should-get">Your next tattoo should be&hellip;</div>
 
-        <div id="conversation" class="conversation" ng-controller="conversationController">
-            <div ng-repeat="comment in comments" class="bubble" ng-class="{ 'bubble--right' : comment.author == 'user', 'bubble--left' : comment.author == 'app'}">
-                {{comment.text}}
-            </div>            
-        </div><!-- .conversation -->
-
-
-        <div class="keyboard" ng-controller="keyboardController">
-            <form id="form" ng-submit="submitForm($event)">
-                <input id="input" class="inputField" ng-model="inputField" />
-                <input class="submitBtn" type="submit" value="&crarr;" />
-            </form>
+        <div id="spinner" class="ispinner ispinner--animating ispinner--white ispinner--large">
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
+          <div class="ispinner__blade"></div>
         </div>
 
+        <div id="idea" class="idea"></div>
     </div>
+
+    <script src="/app.js"></script>
 
 </body>
 </html>

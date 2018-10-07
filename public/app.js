@@ -1,5 +1,5 @@
 var randomTattoo = {
-    
+
     agents : [
         'Patrick Swayze',
         'a grizzly bear',
@@ -34,7 +34,7 @@ var randomTattoo = {
         'a whale',
         'a smurf',
         'Keanu Reeves',
-        
+
     ],
 
     patients : [
@@ -199,149 +199,8 @@ randomTattoo.templates = [
     [randomTattoo.getAgent, randomTattoo.getIntransitive]
 ];
 
-
-var randomTattooApp = angular.module('randomTattooApp', []);
-
-randomTattooApp.controller('conversationController', ['$scope', 'messages', 'cleverBotIo', function($scope, messages, cleverBotIo){
-    $scope.comments = messages.list;
-
-    var scrollConvo = function() {
-        var convo = document.getElementById('conversation');
-        t = setTimeout(function() {
-            convo.scrollTop = convo.scrollHeight;
-            clearTimeout(t);
-        }, 1);        
-    }
-
-    $scope.$watchCollection('comments', scrollConvo);
-
-    $scope.$watchCollection('comments', function() {
-
-        if ($scope.comments[$scope.comments.length-1].author == 'user') {
-            
-            cleverBotIo.ask( $scope.comments[$scope.comments.length-1].text ).then(
-                function(res){
-                    messages.add(res.data.response, true);
-                },
-                function(res){
-                    //@TODO
-                    console.log('failed to ask bot');
-                    console.log(res.data);
-                }
-            ); 
-        }
-    });
-
-
-}]);
-
-randomTattooApp.controller('keyboardController', ['$scope', 'messages', function($scope, messages){
-    
-    $scope.inputField = 'Yeahh!';
-    
-    $scope.submitForm = function(event) {
-        if ($scope.inputField) {
-            messages.add($scope.inputField);
-            $scope.inputField = '';
-        }
-        focusInput();
-    }
-
-    //put focus on the input
-    var focusInput = function() {
-        document.getElementById('input').focus();
-    }
-    focusInput();
-
-}]);
-
-
-randomTattooApp.factory('messages', function(){
-  var messages = {};
-
-  messages.list = [
-    {
-        author: 'user',
-        text: 'What tattoo should I get?'
-    },
-    {
-        author: 'app',
-        text: 'You should get '+randomTattoo.init()
-    }
-  ];
-
-  messages.add = function(message, byBot){
-    var authr = (byBot) ? 'app' : 'user';
-    messages.list.push({author: authr, text: message});
-  };
-
-  return messages;
-});
-
-
-function scrollTo(element, to, duration) {
-    if (duration <= 0) return;
-    var difference = to - element.scrollTop;
-    var perTick = difference / duration * 10;
-
-    setTimeout(function() {
-        element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop === to) return;
-        scrollTo(element, to, duration - 10);
-    }, 10);
+function stopThinking(){
+    document.getElementById('spinner').remove();
+    document.getElementById('idea').append(randomTattoo.init());
 }
-
-randomTattooApp.service('cleverBotIo', ['$http', function($http){
-    var base_url = "https://cleverbot.io/1.0/";
-    var user = 'QKsG3FR5HSF5ePOt'; //@todo
-    var key = '3oVxeenSBIudDaP2zRu23geHmaM173PT'; //@todo
-    var nick = 'bot' + Date.now();
-    var bot;
-    /*
-    data – {string|Object} – The response body transformed with the transform functions.
-    status – {number} – HTTP status code of the response.
-    headers – {function([headerName])} – Header getter function.
-    config – {Object} – The configuration object that was used to generate the request.
-    statusText – {string} – HTTP status text of the response.
-    */    
-    $http.post(base_url+'create', {user: user, key: key, nick: nick}, {
-        headers : {
-            'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
-        },
-        transformRequest: function(obj) {
-            var str = [];
-            for(var p in obj)
-            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-            return str.join("&");
-        }
-    }).then(
-        function(res) {
-            console.log(res.data);
-        },
-        function(res) {
-            console.log('Woops. Couldnt create bot');
-            console.log(res.data);
-        }
-    );
-
-    bot = {
-        ask : function(text) {
-            return $http.post(base_url + 'ask', {user: user, key: key, nick: nick, text: text}, {
-
-                headers : {
-                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
-                },
-                transformRequest: function(obj) {
-                    var str = [];
-                    for(var p in obj)
-                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                    return str.join("&");
-                }
-
-            });
-        }
-    };
-
-    return bot;
-
-}]);
+var t = setTimeout(stopThinking, 3000);
