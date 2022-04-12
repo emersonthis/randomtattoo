@@ -41,10 +41,13 @@ var randomTattoo = {
   patients: [
     "a bible",
     "a burrito",
+    "a cheeseburger",
     "a donut",
     "a hamburger",
     "a hot dog",
     "a lighthouse",
+    "a martini",
+    "a pizza",
     "a sailboat",
     "a sausage",
     "a submarine",
@@ -112,6 +115,8 @@ var randomTattoo = {
   transitives: [
     "arm-wrestling",
     "biting",
+    "bench-pressing",
+    "body slamming",
     "chasing",
     "climbing",
     "dancing with",
@@ -158,7 +163,6 @@ var randomTattoo = {
     "snowboarding",
     "surfing",
     "tap dancing",
-    "winking",
     "winking",
   ],
 
